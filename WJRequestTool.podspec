@@ -39,9 +39,10 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
   s.dependency 'AFNetworking'
-  s.dependency 'PPNetworkHelper',:git => 'https://github.com/jkpang/PPNetworkHelper.git'
+  s.dependency 'PPNetworkHelper'
   s.dependency 'SVProgressHUD'
-  s.dependency 'YYModel' # — 高性能的 iOS JSON 模型框架。https://github.com/ibireme/YYImage
-  s.dependency 'YYCache' # — 高性能的 iOS 缓存框架。https://github.com/ibireme/YYCache
+  s.dependency 'YYModel'
+  s.dependency 'YYCache'
 end
