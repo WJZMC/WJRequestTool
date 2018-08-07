@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 请求的封装，包含加密、错误处理、逻辑解耦、业务拆分、数据解析等
                        DESC
 
-  s.homepage         = 'https://github.com/jack/WJRequestTool'
+  s.homepage         = 'https://github.com/WJZMC/WJRequestTool'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jack' => 'jie.wei@svinsight.com' }
-  s.source           = { :git => 'https://github.com/jack/WJRequestTool.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/WJZMC/WJRequestTool.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
