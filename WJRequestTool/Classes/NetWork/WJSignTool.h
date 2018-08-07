@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UNSignTool : NSObject
+@interface WJSignTool : NSObject
 /**
  *@param dic 所有请求参数.
  *重写此方法可以自定义加密串，默认参数升序后取value拼接 对结果md5

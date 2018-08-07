@@ -5,10 +5,10 @@
 //  Created by jack wei on 2018/7/30.
 //  Copyright © 2018年 jack wei. All rights reserved.
 
-#import "UNAPIBase.h"
+#import "WJRequestBase.h"
 #import "PPNetworkHelper.h"
 #import "AFNetworking.h"
-#import "UNSignTool.h"
+#import "WJSignTool.h"
 #import "WJToast.h"
 #import "SVProgressHUD.h"
 #import "WJErrorWebVIew.h"
@@ -22,7 +22,7 @@
 #endif
 
 
-@implementation UNAPIBase
+@implementation WJRequestBase
 //alert 消息提示
 +(void)showAlertWithMsg:(NSString*)msg WithParentView:(UIView*)parentV
 {
@@ -43,7 +43,7 @@
     if (isShowAnimation) {
         [SVProgressHUD show];
     }
-    NSDictionary *dict=[UNAPIBase dealConfigParameters:parameters];
+    NSDictionary *dict=[WJRequestBase dealConfigParameters:parameters];
     
     debugLog(@"%@", dict);
     debugLog(@"%@", url);
@@ -52,13 +52,13 @@
     [PPNetworkHelper POST:url parameters:dict success:^(id responseObject) {
         
         [SVProgressHUD dismiss];
-        [UNAPIBase dealSucessWithResult:responseObject WithShowLogin:isShowLogin success:success failure:failure];
+        [WJRequestBase dealSucessWithResult:responseObject WithShowLogin:isShowLogin success:success failure:failure];
         
     } failure:^(NSError *error) {
         
         debugLog(@"%@", error);
         [SVProgressHUD dismiss];
-        [UNAPIBase dealFailWithResult:error WithShowLogin:isShowLogin failure:failure];
+        [WJRequestBase dealFailWithResult:error WithShowLogin:isShowLogin failure:failure];
     }];
 }
 + (void)uploadImageWithURL:(NSString *)url parameters:(id)parameters images:(NSArray<UIImage *> *)images name:(NSString *)name imageNames:(NSArray<NSString *> *)imageNames imageType:(NSString *)imageType imageScale:(CGFloat)scale prgress:(UNAPIResultProgress)progresss success:(UNAPIResultSucessBlock)success failure:(UNAPIResultFailedBlock)failure
@@ -68,7 +68,7 @@
     [SVProgressHUD show];
 
     
-    NSDictionary *dict=[UNAPIBase dealConfigParameters:parameters];
+    NSDictionary *dict=[WJRequestBase dealConfigParameters:parameters];
 
 //    debugLog(@"%@", dict);
 //    debugLog(@"%@", url);
@@ -77,11 +77,11 @@
         progresss(progress);
     } success:^(id responseObject) {
 //        debugLog(@"%@", responseObject);
-        [UNAPIBase dealSucessWithResult:responseObject WithShowLogin:NO success:success failure:failure];
+        [WJRequestBase dealSucessWithResult:responseObject WithShowLogin:NO success:success failure:failure];
 
     } failure:^(NSError *error) {
         debugLog(@"%@", error);
-        [UNAPIBase dealFailWithResult:error WithShowLogin:NO failure:failure];
+        [WJRequestBase dealFailWithResult:error WithShowLogin:NO failure:failure];
     }];
 }
 +(NSDictionary *)dealConfigParameters:(id)parameters
@@ -96,7 +96,7 @@
     
     dict[@"ostype"] = @"iOS";
     
-    dict[@"sign"] =[UNSignTool getSignStrWithOriginDic:dict];
+    dict[@"sign"] =[WJSignTool getSignStrWithOriginDic:dict];
 
     return dict;
 }
@@ -135,27 +135,27 @@
                 
                 if (isShowLogin) {
                     failure(@"");
-                    [UNAPIBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
 
                 }else
                 {
                     if ([resultkeyArray containsObject:@"msg"]){
                         failure(responseObject[@"msg"]);
-                        [UNAPIBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                        [WJRequestBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                     }else
                     {
                         failure(@"登录信息失效，请重试");
-                        [UNAPIBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                        [WJRequestBase showAlertWithMsg:@"登录信息失效，请重试" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                     }
                     
                 }
                 
             }else if ([responseObject[@"code"] intValue] == 100){
                 if ([resultkeyArray containsObject:@"data"]){
-                    [UNAPIBase updateWithData:responseObject[@"data"]];
+                    [WJRequestBase updateWithData:responseObject[@"data"]];
                 }else
                 {
-                    [UNAPIBase showAlertWithMsg:@"无最新版本描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:@"无最新版本描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }
                 failure(@"");
             }else if ([responseObject[@"code"] intValue] == -2){
@@ -163,43 +163,43 @@
                 //封号
                 if ([resultkeyArray containsObject:@"msg"]){
                     failure(responseObject[@"msg"]);
-                    [UNAPIBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }else
                 {
                     failure(@"无错误描述");
-                    [UNAPIBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }
             }else if ([responseObject[@"code"] intValue] == -3){
                 if ([resultkeyArray containsObject:@"msg"]){
                     failure(responseObject[@"code"]);
-                    [UNAPIBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }else
                 {
                     failure(@"无错误描述");
-                    [UNAPIBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }
             }
             else{
                 if ([resultkeyArray containsObject:@"msg"]){
                     failure(responseObject[@"msg"]);
-                    [UNAPIBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:responseObject[@"msg"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }else
                 {
                     failure(@"无错误描述");
-                    [UNAPIBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+                    [WJRequestBase showAlertWithMsg:@"无错误描述" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
                 }
                 
             }
         }else
         {
             failure(@"非法的返回结果");
-            [UNAPIBase showAlertWithMsg:@"非法的返回结果" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+            [WJRequestBase showAlertWithMsg:@"非法的返回结果" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
 
         }
     }else
     {
         failure(@"非法的返回结果");
-        [UNAPIBase showAlertWithMsg:@"非法的返回结果" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+        [WJRequestBase showAlertWithMsg:@"非法的返回结果" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
 
     }
 }
@@ -207,7 +207,7 @@
 {
     failure(error.localizedFailureReason);
     
-    [UNAPIBase showAlertWithMsg:error.localizedFailureReason WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+    [WJRequestBase showAlertWithMsg:error.localizedFailureReason WithParentView:[[[UIApplication sharedApplication] delegate] window]];
 
     if ([[error.userInfo allKeys] containsObject:@"NSUnderlyingError"]) {
 #ifdef DEBUG
@@ -215,7 +215,7 @@
             NSData *messagedata=[error.userInfo[@"NSUnderlyingError"] userInfo][@"com.alamofire.serialization.response.error.data"];
             //            MyLog(@"Error: -------%@",[[NSString alloc]initWithData:messagedata  encoding:NSUTF8StringEncoding]);
             dispatch_async(dispatch_get_main_queue(), ^{
-                [UNAPIBase showErrorWithhtmlData:messagedata];
+                [WJRequestBase showErrorWithhtmlData:messagedata];
             });
         }
 #else
@@ -229,15 +229,15 @@
     if ([dic isKindOfClass:[NSDictionary class]]) {
         NSArray *allkeys=[dic allKeys];
         if ([allkeys containsObject:@"info"]&&[allkeys containsObject:@"title"]&&[allkeys containsObject:@"url"]&&[allkeys containsObject:@"version"]) {
-            [UNAPIBase showAlertWithMsg:dic[@"title"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+            [WJRequestBase showAlertWithMsg:dic[@"title"] WithParentView:[[[UIApplication sharedApplication] delegate] window]];
 
         }else
         {
-            [UNAPIBase showAlertWithMsg:@"最新版本返回数据格式错误" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+            [WJRequestBase showAlertWithMsg:@"最新版本返回数据格式错误" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
         }
     }else
     {
-        [UNAPIBase showAlertWithMsg:@"最新版本返回数据格式错误" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
+        [WJRequestBase showAlertWithMsg:@"最新版本返回数据格式错误" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
     }
    
 }

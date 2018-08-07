@@ -6,9 +6,9 @@
 //  Copyright © 2018年 jack wei. All rights reserved.
 //
 
-#import "UNSignTool.h"
+#import "WJSignTool.h"
 #import <CommonCrypto/CommonCrypto.h>
-@implementation UNSignTool
+@implementation WJSignTool
 +(NSString*)getSignStrWithOriginDic:(NSDictionary*)dic
 {
     NSString *signStr=@"";
@@ -20,7 +20,7 @@
     for (int i=0; i<resultArray.count; i++) {
         [resultTemstr appendFormat:@"%@",dic[resultArray[i]]];
     }
-    signStr=[UNSignTool md5:resultTemstr];
+    signStr=[WJSignTool md5:resultTemstr];
     signStr=[signStr lowercaseString];
     return signStr;
 }
