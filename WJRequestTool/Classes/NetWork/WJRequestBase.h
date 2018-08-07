@@ -12,7 +12,7 @@ typedef void (^UNAPIResultProgress)(NSProgress *progress);
 //api层结果block
 typedef void (^UNAPIResultSucessBlock)(id result,NSString *msg);
 typedef void (^UNAPIResultFailedBlock)(NSString *failMsg);
-@interface UNAPIBase : NSObject
+@interface WJRequestBase : NSObject
 @property(nonatomic,strong) NSString *BaseUrl;
 //alert
 +(void)showAlertWithMsg:(NSString*)msg WithParentView:(UIView*)parentV;
