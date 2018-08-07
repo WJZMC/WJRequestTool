@@ -1,0 +1,6 @@
+framework module WJRequestTool {
+  umbrella header "WJRequestTool-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - WJRequestTool (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - WJRequestTool (from `../`)
+
+EXTERNAL SOURCES:
+  WJRequestTool:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  WJRequestTool: 28929ac465596e04d9ded639e603674be778e50a
+
+PODFILE CHECKSUM: 77dcba3b3ba0a22c6dd2d8e66e76665dda03b21c
+
+COCOAPODS: 1.4.0
