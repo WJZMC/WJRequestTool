@@ -18,7 +18,7 @@ PODS:
     - AFNetworking (~> 3.2.0)
     - YYCache (~> 1.0.4)
   - SVProgressHUD (2.2.5)
-  - WJRequestTool (1.0.0):
+  - WJRequestTool (1.0.1):
     - AFNetworking
     - PPNetworkHelper
     - SVProgressHUD
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   PPNetworkHelper: e893191a73665e9c496c2887fd5ceece9e930bb8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  WJRequestTool: 28d86eb7a29b2373ed231da81955d4276cd9c9c1
+  WJRequestTool: 324dafb5ca201e97ca0f4015db5b61b208838cae
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 

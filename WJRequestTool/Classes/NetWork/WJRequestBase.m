@@ -9,7 +9,7 @@
 #import "PPNetworkHelper.h"
 #import "AFNetworking.h"
 #import "UNSignTool.h"
-#import "UIView+Toast.h"
+#import "WJToast.h"
 #import "SVProgressHUD.h"
 #import "WJErrorWebVIew.h"
 

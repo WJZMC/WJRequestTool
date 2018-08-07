@@ -7,7 +7,7 @@
 //
 
 #import "WJViewController.h"
-
+#import "MainAPI.h"
 @interface WJViewController ()
 
 @end
@@ -17,7 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [MainAPI getHomeChannelColumnListDataWithParameters:@{@"type":@"1"} WithAnimation:YES Success:^(NSArray *result) {
+        
+    } Failed:^(NSString *failMsg) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
