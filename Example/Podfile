@@ -1,4 +1,4 @@
-use_frameworks!
+#use_frameworks!
 
 target 'WJRequestTool_Example' do
   pod 'WJRequestTool', :path => '../'
@@ -6,6 +6,5 @@ target 'WJRequestTool_Example' do
   target 'WJRequestTool_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
   end
 end

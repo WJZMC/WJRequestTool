@@ -1,13 +1,33 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - WJRequestTool (0.1.0)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - PPNetworkHelper (0.8.1):
+    - AFNetworking (~> 3.2.0)
+    - YYCache (~> 1.0.4)
+  - SVProgressHUD (2.2.5)
+  - WJRequestTool (1.0.0):
+    - AFNetworking
+    - PPNetworkHelper
+    - SVProgressHUD
+    - YYCache
+    - YYModel
+  - YYCache (1.0.4)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - WJRequestTool (from `../`)
 
 EXTERNAL SOURCES:
@@ -15,9 +35,13 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  WJRequestTool: 28929ac465596e04d9ded639e603674be778e50a
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  PPNetworkHelper: e893191a73665e9c496c2887fd5ceece9e930bb8
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  WJRequestTool: 44d2c6e20c2aa5a5eeb9df927fb98a5fcd4627d2
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 77dcba3b3ba0a22c6dd2d8e66e76665dda03b21c
+PODFILE CHECKSUM: 022dc5854a40cfccfe5b0ca0b8e13008786f7939
 
 COCOAPODS: 1.4.0
