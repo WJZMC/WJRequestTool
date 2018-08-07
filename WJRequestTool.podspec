@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WJRequestTool'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of WJRequestTool.'
+  s.version          = '1.0.0'
+  s.summary          = '基于AFNetworking的封装'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+请求的封装，包含加密、错误处理、逻辑解耦、业务拆分、数据解析等
                        DESC
 
   s.homepage         = 'https://github.com/jack/WJRequestTool'
@@ -39,4 +39,9 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AFNetworking'
+  s.dependency 'PPNetworkHelper',:git => 'https://github.com/jkpang/PPNetworkHelper.git'
+  s.dependency 'SVProgressHUD'
+  s.dependency 'YYModel' # — 高性能的 iOS JSON 模型框架。https://github.com/ibireme/YYImage
+  s.dependency 'YYCache' # — 高性能的 iOS 缓存框架。https://github.com/ibireme/YYCache
 end
