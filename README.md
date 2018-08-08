@@ -22,7 +22,7 @@ pod 'WJRequestTool'
 
 ## Author
 
-jack, jie.wei@svinsight.com
+jack, jack_weijie@foxmail.com
 
 ## License
 
