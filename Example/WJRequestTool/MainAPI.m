@@ -9,10 +9,10 @@
 #import "MainAPI.h"
 @implementation MainAPI
 /**
- *  首页列表
+ * 
 
  */
-+ (void)getHomeChannelColumnListDataWithParameters:(id)parameters WithAnimation:(BOOL)isShowAnimation Success:(UNMainApiResultSucessBlock)success Failed:(UNAPIResultFailedBlock)failure
++ (void)getHomeChannelColumnListDataWithParameters:(id)parameters WithAnimation:(BOOL)isShowAnimation Success:(UNMainApiResultSucessBlock)success Failed:(WJAPIResultFailedBlock)failure
 {
     [MainAPI postWithURL:@"请求全路径" parameters:parameters WithAnimation:isShowAnimation WithShowLogin:NO success:^(id result, NSString *msg)  {
         if ([result isKindOfClass:[NSArray class]]) {
@@ -25,10 +25,9 @@
             success(resultArray);
         }else
         {
-            failure(@"非法的返回结果");
-            [MainAPI showAlertWithMsg:@"非法的返回结果" WithParentView:[[[UIApplication sharedApplication] delegate] window]];
-            
+            failure(@"非法的返回结果");            
         }
     } failure:failure];
 }
+
 @end
